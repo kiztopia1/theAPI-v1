@@ -7,9 +7,9 @@ class Item(models.Model):
     key = models.CharField(max_length=100)
     name = models.CharField(max_length=100)
     price = models.CharField(max_length=100)
-    sellingPrice = models.CharField(max_length=100)
+    # sellingPrice = models.CharField(max_length=100)
     amount = models.CharField(max_length=100)
-    expDate = models.DateField()
+    # expDate = models.DateField()
 
 
     def __str__(self):
