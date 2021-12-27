@@ -16,8 +16,9 @@ class Item(models.Model):
         return self.name
 
 
-class SoldItems(models.Model):
+class SoldItem(models.Model):
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
+    saleId = models.CharField(max_length=100)
     amount = models.CharField(max_length=100)
     date = models.DateField()
     def __str__(self):
