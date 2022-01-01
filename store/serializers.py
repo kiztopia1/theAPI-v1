@@ -13,4 +13,11 @@ class ItemSerializer(serializers.ModelSerializer):
 class SoldItemSerializer(serializers.ModelSerializer):
     class Meta: 
         model= SoldItem
-        fields = ('item', 'saleId', 'amount', 'date')
+        fields = ('item', 'saleId', 'amount', 'date',)
+
+    def to_representation(self, instance):
+        data =  super().to_representation(instance)
+        item = Item.objects.get(key=data['item'])
+        data['item'] = item.name
+        data['key'] = item.key
+        return data
