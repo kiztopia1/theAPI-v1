@@ -8,7 +8,7 @@ class Item(models.Model):
     name = models.CharField(max_length=100)
     price = models.CharField(max_length=100)
     # sellingPrice = models.CharField(max_length=100)
-    amount = models.CharField(max_length=100)
+    amount = models.IntegerField (max_length=100)
     # expDate = models.DateField()
 
 

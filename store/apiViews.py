@@ -20,6 +20,14 @@ class ItemCreate(CreateAPIView):
             raise ValidationError({'price': "A valid number is required"})
         return super().create(request, *args, **kwargs )
 
+# items list class
+class ItemsList(ListAPIView):
+    queryset = Item.objects.all()
+    serializer_class = ItemSerializer
+
+    filter_backends = (DjangoFilterBackend,)
+    filter_fields =  ('name','amount')
+
 class ReteriveUpdateDestroy(RetrieveUpdateDestroyAPIView):
     queryset = Item.objects.all()
     lookup_field = 'key'
