@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'store.apps.StoreConfig',
     'rest_framework',
     'corsheaders',
+    'django_filters',
 
 ]
 
