@@ -12,5 +12,5 @@ urlpatterns = [
     #list of sold items
     path('sold-items/', soldItemsList.as_view()),
     # add new sold Item
-    path('sold/add', SoldItemCreate.as_view()),
+    path('pos/add', SoldItemCreate.as_view()),
 ]
