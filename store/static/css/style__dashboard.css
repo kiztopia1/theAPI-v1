@@ -1,0 +1,195 @@
+body {
+    background: #E5E5E5;
+    overflow-x: hidden;
+}
+
+a {
+    color: #838590;
+    font-size: 20px;
+}
+
+.col-md-9,
+.col-md-10,
+.col-md-3,
+.col-md-6,
+.col-md-9 {
+    padding: 0 !important;
+}
+
+.row {
+    margin: 0;
+}
+
+a:hover {
+    color: #b0b4c7;
+    text-decoration: none;
+}
+
+.hr {
+    background: #838590;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-right: 20px;
+}
+
+hr {
+    background: #cfd0d9;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-right: 20px;
+}
+
+.active__d {
+    background: #cbcbcb;
+    border-right: 10px solid #bebebe;
+}
+
+.flex {
+    display: flex;
+    align-items: center
+}
+
+.box__white {
+    background: #F7F8FC;
+    color: rgb(0, 0, 0);
+}
+
+.box__black {
+    background: #363740;
+    color: rgb(255, 255, 255)38, 89, 89)
+}
+
+.box {
+    margin: 0 20px;
+    padding: 20px;
+    border-radius: 6px;
+}
+
+.box__padding {
+    padding: 20px !important;
+    border-radius: 6px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.patient h5 {
+    display: flex;
+    align-items: center;
+}
+
+.patient .name {
+    margin-bottom: 10px;
+}
+
+ul {
+    list-style: none !important;
+}
+
+main {
+    display: flex;
+    margin: 0;
+}
+
+.main {
+    width: 75%;
+    margin: 0;
+}
+
+main i {
+    font-size: 60px !important
+}
+
+.main ul {
+    padding: 0;
+    list-style: none;
+}
+
+.main p,
+h3,
+h4,
+h5 {
+    font-weight: 600;
+}
+
+.main__nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 20px;
+}
+
+.main__nav img {
+    padding: 0 10px;
+}
+
+.mobile_nav {
+    display: none;
+}
+
+.dashboard {
+    width: 25%;
+    background: #363740;
+    margin: 0;
+}
+
+.dashboard .dashboard__logo {
+    margin: 30px 30px;
+}
+
+.dashboard ul li {
+    padding: 10px 5px;
+    margin: 20px 0 0 10px;
+    display: flex;
+}
+
+@media screen and (max-width: 750px) {
+    .mobile_nav__active {
+        transform: translateX(0%) !important
+    }
+
+    .mobile_nav_btn {
+        width: 45px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .mobile_nav_btn span {
+        width: 100%;
+        background: #838590;
+        padding: 3px;
+        margin: 2px;
+        border-radius: 2px;
+    }
+
+    .mobile_nav {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    main {
+        display: block;
+    }
+
+    .dashboard {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        top: 90px;
+        transition: 0.25s;
+        transform: translateX(-150%)
+    }
+
+    .dashboard .dashboard__logo {
+        display: none;
+    }
+
+    .main {
+        width: 100%;
+    }
+
+    .col-md-3 {
+        margin: 20px;
+    }
+}

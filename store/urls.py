@@ -1,8 +1,9 @@
 
 from django.urls import path
 from .apiViews import ItemCreate, ReteriveUpdateDestroy, SoldItemCreate,soldItemsList,ItemsList
-
+from .views import index
 urlpatterns = [
+    path('', index , name='index'),
     # add new item
     path('item/add', ItemCreate.as_view()),
     # list of items

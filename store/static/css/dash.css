@@ -1,0 +1,39 @@
+.side-nav{
+    width: 200px;
+    height: 100vh;
+    position: fixed;
+    border-right: 1px solid #d6d6d6;
+}
+.side-nav .logo{
+    padding: 20px;
+    height: 15%;
+    
+}
+.side-nav ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 80%;
+    padding-bottom: 30px;
+
+}
+.side-nav li{
+    margin-left: 20px;
+}
+/*  main */
+
+.main-container{
+    margin-left: 200px;
+    padding: 10px;
+    width: 100%;
+    background-color: rgb(255, 253, 253);
+}
+
+.main{
+    padding: 0 20px;
+}
+.main .hello .box{
+    width: 150px;
+}
+/* nav */
+

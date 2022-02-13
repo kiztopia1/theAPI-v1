@@ -1,0 +1,22 @@
+{% extends "store/base.html"%}
+
+{% block body %}
+<div class="main">
+    {% include 'store/messages.html' %}
+    <div class="flex-bw section">
+            <div class="product-list-header">
+                <h2>Product List</h2>
+                <p class="light">
+                    The Product list effectively dictates product presentation and provides space to list your products and offering in the most appealing way.
+                </p>
+            </div>
+            <a href="" class="btn btn-success flex-ccc">add Product</a>
+    </div>
+    <div class="section">
+        {% include 'store/item_form.html' %}
+    </div>
+    <div class="section product-list">
+        {% include 'store/product_list.html' %}
+    </div>
+</div>
+{% endblock %}
