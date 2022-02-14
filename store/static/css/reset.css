@@ -30,8 +30,9 @@ pre
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: #130e4d;
 }
-p{
-    margin: 0!important;
+p,a,label{
+    margin: 0;
+    font-size: 14px;
 }
 ul {
     list-style: none;
