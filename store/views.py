@@ -1,3 +1,4 @@
+from multiprocessing import context
 from django.shortcuts import redirect, render
 from django.contrib import messages
 from .forms import ItemForm
@@ -20,3 +21,13 @@ def index(request):
     }
     return render(request, 'store/main_dashboard.html', context)
 
+
+def add_new_product(request):
+    if request.method == "POST":
+        exit
+    else:
+        context = {
+            'form' : ItemForm()
+        }
+        return render(request, 'store/products/page_new_product.html', context)
+        

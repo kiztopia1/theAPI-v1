@@ -1,0 +1,49 @@
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>HDashBoard | HAGRE IMS</title>
+    <link rel="stylesheet" href="{% static 'lib/bootstrap/css/bootstrap.css'%}">
+    <link rel="stylesheet" href="{% static 'lib/font-awesome/css/font-awesome.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/reset.css'%}">
+    <link rel="stylesheet" href="{% static 'css/dash.css'%}">
+    <link rel="stylesheet" href="{% static 'css/product.css'%}">
+</head>
+
+<body>
+    
+    <div class="app flex">
+        <div class="side-nav">
+            <div class="logo flex-cc">
+                Hage logo
+            </div>
+            <ul class="lists">
+                <li><a href="" class="dark">Dashboard</a></li>
+                <li><a href="" class="dark">Products</a></li>
+                <li><a href="" class="dark">Categories</a></li>
+                <li><a href="" class="dark">Sale</a></li>
+                <li><a href="" class="dark">Purchases</a></li>
+                <li><a href="" class="dark">Returns</a></li>
+            </ul>
+        </div>
+        <div class="main-container">
+            <nav class="flex-bw navbar navbar-dark">
+                <div class="search">
+                    <input type="text" placeholder="search">
+                </div>
+                <div class="">
+                    user avatar settings
+                </div>
+            </nav>
+    {% block body %}
+    {% endblock %}
+    </div>
+    </div>
+
+    <script src="{% static 'lib/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'lib/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>
