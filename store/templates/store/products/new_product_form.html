@@ -1,3 +1,11 @@
+<script language="JavaScript" type="text/javascript">
+    function CloseAndRefresh() 
+     {
+        opener.location.reload(true);
+        self.close();
+     }
+   </script>
+
 <form action="" class="form " method="post">
 
     {% csrf_token %}
@@ -37,7 +45,7 @@
             <div>
                 {{form.category.label_tag}}
                 {{ form.category }}
-                many to many error
+
             </div>
 
             <div>
@@ -49,6 +57,10 @@
             <div>
                 {{form.brand.label_tag}}
                 {{ form.brand }}
+                <a href=""
+                target="popup" 
+                onclick="window.open('/admin/store/brand/add/?_to_field=id&_popup=2','popup','width=600,height=600'); return false;">
+                add</a>
             </div>
             <div>
                 {{form.gross_weight.label_tag}}
