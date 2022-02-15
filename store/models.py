@@ -48,10 +48,12 @@ class Product(models.Model):
     description = models.CharField(max_length=100, default='', )
     sku = models.CharField(max_length=100, null=False)
     price = models.CharField(max_length=100)
-    category = models.ManyToManyRel(to=Category, field='choose')
-    main_supplier = models.ManyToManyRel(to=Brand, field='choose')
+    cost = models.CharField(max_length=100, default='0')
+    category = models.ManyToManyField(Category)
+    main_supplier = models.ManyToManyField(Supplier)
     reference = models.CharField(max_length=100, null=True, blank=True)
-    brand =  models.ManyToManyRel(to=Brand, field='choose')
+    brand =  models.ManyToManyField(Brand)
+    comments = models.TextField(default='')
 
     reserved_stock = models.IntegerField(default=0)
     available_stock = models.IntegerField(default=0)
@@ -64,7 +66,7 @@ class Product(models.Model):
     point_needed = models.IntegerField()
 
     taxation = models.CharField(max_length=100, blank=True)
-    new_weight = models.CharField(max_length=100, blank=True)
+    net_weight = models.CharField(max_length=100, blank=True)
     gross_weight = models.CharField(max_length=100, blank=True)
     #unit = models.CharField(max_length=100, choices=['Kg', 'Can', 'Meter', 'Piece'] )
 

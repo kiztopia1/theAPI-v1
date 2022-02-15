@@ -1,7 +1,107 @@
-<form action="" class="form" method="post">
+<form action="" class="form " method="post">
 
     {% csrf_token %}
-    {{form.name.label_tag}}
-    {{ form.name }}
+    
+    <div class="product_form_nav">
+        <a href="" target="" rel="">data</a>
+        <a href="" target="" rel="">Bundle</a>
+        <a href="" target="" rel="">Tax</a>
+        <a href="" target="" rel="">Suppliers</a>
+        <a href="" target="" rel="">Options</a>
+        <a href="" target="" rel="">Expiration</a>
+    </div>
+    <div class="data">
+        <div class="flex-bw">
+            <div class="flex">
+                {{ form.id.label_tag }}
+                {{ form.id }}
+                <div class="flex">
+                    <input type="checkbox" class="form-control form-control-sm" name="auto" id="auto">
+                    <label for="auto">Automate</label>
+                </div>
+            </div>
+            <div>
+                {{form.sku.label_tag}}
+                {{ form.sku }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{form.ENA_GTIN.label_tag}}
+            {{ form.ENA_GTIN }}
+        </div>
+        <div class="form-group">
+            {{form.description.label_tag}}
+            {{ form.description }}
+        </div>
+        <div class="form-group flex-bw">
+            <div>
+                {{form.category.label_tag}}
+                {{ form.category }}
+                many to many error
+            </div>
+
+            <div>
+                {{form.net_weight.label_tag}}
+                {{ form.net_weight }}
+            </div>
+        </div>
+        <div class="form-group flex-bw">
+            <div>
+                {{form.brand.label_tag}}
+                {{ form.brand }}
+            </div>
+            <div>
+                {{form.gross_weight.label_tag}}
+                {{ form.gross_weight }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{form.location.label_tag}}
+            {{ form.location }}
+        </div>
+        <hr>
+        <div class="form-group">
+            {{form.price.label_tag}}
+            {{ form.price }}
+        </div>
+        <div class="form-group">
+            {{form.cost.label_tag}}
+            {{ form.cost }}
+        </div>
+        <hr>
+        <div class="form-group">
+            {{form.stock_level.label_tag}}
+            {{ form.stock_level }}
+        </div>
+        <div class="form-group">
+            {{form.unit.label_tag}}
+            {{ form.unit }}
+        </div>
+        <div class="form-group">
+            {{form.min_stock.label_tag}}
+            {{ form.min_stock }}
+        </div>
+        <div class="form-group">
+            {{form.max_stock.label_tag}}
+            {{ form.max_stock }}
+        </div>
+        <hr>
+        <div class="form-group">
+            {{form.comments.label_tag}}
+            {{ form.comments }}
+        </div>
+    </div>
+    <div class="bundle">
+
+    </div>
+    <div class="tax">
+
+    </div>
+    <div class="options">
+
+    </div>
+    <div class="expiration">
+
+    </div>
     <input type="submit" value="submit">
     </form>

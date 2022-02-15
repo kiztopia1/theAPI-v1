@@ -1,16 +1,15 @@
 from django import forms
-from .models import Item
+from .models import Item, Product
 
-class ItemForm (forms.ModelForm):
+
+        
+class ProductForm (forms.ModelForm):
     class Meta:
-        model = Item
+        model = Product
         fields = ('__all__')
         
-        widgets = {
-            'key': forms.TextInput(attrs={'class': 'form-control form-control-sm'}),
-            'name': forms.TextInput(attrs={'class': 'form-control form-control-sm'}),
-            'price': forms.TextInput(attrs={'class': 'form-control form-control-sm'}),
-            'alert': forms.CheckboxInput(attrs={'class': ''}),
-
-        }
-        
+        def __init__(self, *args, **kwargs):
+            super(ProductForm, self).__init__(*args, **kwargs)
+            for visible in self.visible_fields():
+                visible.field.widget.attrs['class'] = 'form-control'
+    

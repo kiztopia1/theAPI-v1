@@ -1,3 +1,7 @@
 .product-list-header p{
     width: 50%;
 }
+/* form layout */
+label{
+    width: 120px !important;
+}
