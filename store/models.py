@@ -21,15 +21,15 @@ class Item(models.Model):
 
     def __str__(self):
         return self.name
-
+        
 class Category(models.Model):
     name = models.CharField(max_length=100)
-    def __str__(self) -> str:
-        return super().__str__()
-class Brand(models.Model):
+    def __str__(self) :
+        return self.name
+'''class Brand(models.Model):
     name = models.CharField(max_length=100)
     def __str__(self) -> str:
-        return super().__str__()
+        return super().__str__()'''
 class Supplier(models.Model):
     name = models.CharField(max_length=100)
     phone = models.CharField(max_length=100)
@@ -52,7 +52,7 @@ class Product(models.Model):
     category = models.ManyToManyField(Category)
     main_supplier = models.ManyToManyField(Supplier)
     reference = models.CharField(max_length=100, null=True, blank=True)
-    brand =  models.ManyToManyField(Brand)
+    brand =  models.CharField(max_length=100, default='')
     comments = models.TextField(default='')
 
     reserved_stock = models.IntegerField(default=0)
@@ -62,8 +62,8 @@ class Product(models.Model):
     low_stock = models.IntegerField(default=0)
     stock_level = models.IntegerField(default=0)
 
-    reward = models.BooleanField(default=False)
-    point_needed = models.IntegerField()
+    #reward = models.BooleanField(default=False)
+    #point_needed = models.IntegerField()
 
     taxation = models.CharField(max_length=100, blank=True)
     net_weight = models.CharField(max_length=100, blank=True)
@@ -77,13 +77,13 @@ class Product(models.Model):
     commission = models.CharField(max_length=100, blank=True)
     location = models.CharField(max_length=100, blank=True)
 
-    on_sale = models.BooleanField(default=False)
-    on_sale_init_day = models.DateTimeField( blank=True)
-    on_sale_final_day = models.DateTimeField(blank=True)
-    promotional = models.BooleanField()
-    status = models.BooleanField(default=False)
-    tax = models.ForeignKey(Tax, on_delete=models.CASCADE)
-    bundle = models.BooleanField(default=False, blank=True)
+    #on_sale = models.BooleanField(default=False)
+    #on_sale_init_day = models.DateTimeField( blank=True)
+    #on_sale_final_day = models.DateTimeField(blank=True)
+    #promotional = models.BooleanField()
+    #status = models.BooleanField(default=False)
+    #tax = models.ForeignKey(Tax, on_delete=models.CASCADE)
+    #bundle = models.BooleanField(default=False, blank=True)
 
     def __str__(self) -> str:
         return super().__str__()
