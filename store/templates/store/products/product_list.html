@@ -1,4 +1,4 @@
-<table class="table">
+<table class="table" border="true">
     <thead>
         <tr>
             <th scope="col">Product</th>
@@ -7,24 +7,37 @@
             <th scope="col">Price</th>
             <th scope="col">Brand Name</th>
             <th scope="col">Cost</th>
-            <th scope="col">Quantity</th>
-            <th scope="col">Actions</th>
+            <th scope="col">min_stock</th>
+            <th scope="col">max stock</th>
+            <th scope="col">current stock</th>
+            <th scope="col">new weight</th>
+            <th scope="col">gross weight</th>
+            <th scope="col">tax</th>
         </tr>
     </thead>
     <tbody>
         {% for product in products %}
         <tr>
-            <td >sun chips</td>                                
-            <td >#553264</td>
-            <td >food</td>
-            <td >10 birr</td>
-            <td >sun</td>
-            <td >8 birr</td>                               
-            <td >63</td>
-            <td class="flex">
+            <td >{{product.description}}</td>                                
+            <td >{{product.sku}}</td>
+            <td >
+                {% if product.category == 'store.Category.None' %}
+                {{product.category}}
+                {%endif %}
+            </td>
+            <td >{{product.price}} </td>
+            <td >{{product.brand}}</td>
+            <td >{{product.cost}} </td>                               
+            <td >{{product.min_stock}}</td>
+            <td >{{product.max_stock}}</td>
+            <td >{{product.stock_level}}</td>
+            <th >{{product.net_weight}}</th>
+            <th >{{product.gross_weight}}</th>
+            <td >{{product.tax}}</td>
+            <!-- <td class="flex">
                 <a href="" class="btn btn-sm btn-success margin-sm">+</a>
                 <a href="" class="btn btn-sm btn-danger margin-sm">del</a>
-            </td>
+            </td> -->
 
 
         </tr>

@@ -1,4 +1,4 @@
-{% extends "store/base.html"%}
+{% extends "store/base_nav.html"%}
 
 {% block body %}
 <div class="main">
@@ -10,13 +10,13 @@
                     The Product list effectively dictates product presentation and provides space to list your products and offering in the most appealing way.
                 </p>
             </div>
-            <a href="" class="btn btn-success flex-ccc">add Product</a>
     </div>
-    <div class="section">
-        {% include 'store/item_form.html' %}
-    </div>
+    <a href=""
+    target="popup" 
+    onclick="window.open('/add_new_product?_to_field=id&_popup=1','popup','width=650,height=700'); return false;">
+    add new product</a>
     <div class="section product-list">
-        {% include 'store/product_list.html' %}
+        {% include 'store/products/product_list.html' %}
     </div>
 </div>
 {% endblock %}

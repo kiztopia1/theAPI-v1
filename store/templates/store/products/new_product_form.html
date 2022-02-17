@@ -10,24 +10,28 @@
 
     {% csrf_token %}
     
-    <div class="product_form_nav">
+    <!-- <div class="product_form_nav">
         <a href="" target="" rel="">data</a>
         <a href="" target="" rel="">Bundle</a>
         <a href="" target="" rel="">Tax</a>
         <a href="" target="" rel="">Suppliers</a>
         <a href="" target="" rel="">Options</a>
         <a href="" target="" rel="">Expiration</a>
-    </div>
+    </div> -->
     <div class="data">
         <div class="flex-bw">
-            <div class="flex">
-                {{ form.id.label_tag }}
-                {{ form.id }}
+            <div class="">
                 <div class="flex">
-                    <input type="checkbox" class="form-control form-control-sm" name="auto" id="auto">
-                    <label for="auto">Automate</label>
+
+                    {{ form.id.label_tag }}
+                    {{ form.id }}
+                    <div class="flex">
+                        <input type="checkbox" class="form-control form-control-sm" name="auto" id="auto">
+                        <label for="auto">Automate</label>
+                    </div>
                 </div>
             </div>
+            
             <div>
                 {{form.sku.label_tag}}
                 {{ form.sku }}
@@ -36,6 +40,9 @@
         <div class="form-group">
             {{form.ENA_GTIN.label_tag}}
             {{ form.ENA_GTIN }}
+            <span class="light">
+                use the barcode scanner to scan
+            </span>
         </div>
         <div class="form-group">
             {{form.description.label_tag}}
@@ -57,10 +64,7 @@
             <div>
                 {{form.brand.label_tag}}
                 {{ form.brand }}
-                <a href=""
-                target="popup" 
-                onclick="window.open('/admin/store/brand/add/?_to_field=id&_popup=2','popup','width=600,height=600'); return false;">
-                add</a>
+                
             </div>
             <div>
                 {{form.gross_weight.label_tag}}
@@ -68,8 +72,8 @@
             </div>
         </div>
         <div class="form-group">
-            {{form.location.label_tag}}
-            {{ form.location }}
+            {{form.tax.label_tag}}
+            {{ form.tax }} %
         </div>
         <hr>
         <div class="form-group">
@@ -102,8 +106,13 @@
             {{form.comments.label_tag}}
             {{ form.comments }}
         </div>
+        <div class="form-group">
+            {{form.main_supplier.label_tag}}
+            {{ form.main_supplier }}
+        </div>
+
     </div>
-    <div class="bundle">
+    <!-- <div class="bundle">
 
     </div>
     <div class="tax">
@@ -114,6 +123,6 @@
     </div>
     <div class="expiration">
 
-    </div>
+    </div> -->
     <input type="submit" value="submit">
     </form>

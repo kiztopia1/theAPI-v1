@@ -4,6 +4,7 @@ from .apiViews import ItemCreate, ReteriveUpdateDestroy, SoldItemCreate,soldItem
 from .views import index, add_new_product
 urlpatterns = [
     path('', index , name='index'),
+    path('add_new_product', add_new_product, name='products_list'),
     path('add_new_product', add_new_product, name='add_new_product'),
 
 
