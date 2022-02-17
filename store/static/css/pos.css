@@ -1,0 +1,33 @@
+.pos-total{
+    position: fixed;
+    right: 10px;
+    bottom: 0;
+    text-align: right;
+    margin:20px 80px;
+}
+.pos-total .total {
+    font-size: 2rem;
+    text-transform: capitalize;
+    font-weight: 900;
+}
+.pos-total  span{
+    font-size: 1.5rem;
+    padding: 5px;
+}
+.item {
+    position: relative;
+}
+.item .delete_item{
+    position: absolute;
+    right: 10px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border: 0px ;
+    font-size: 1.5rem;
+}
+.item .delete_item:hover{
+    color: red;
+    cursor: pointer;
+}

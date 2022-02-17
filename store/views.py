@@ -27,4 +27,7 @@ def add_new_product(request):
             return render(request, 'store/products/page_new_product.html',context)
     else:
         return render(request, 'store/products/page_new_product.html', context)
+
+def pos(request):
+    return render(request, 'store/pos/pos.html')
         

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=], initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'lib/bootstrap/css/bootstrap.css'%}">
+    <link rel="stylesheet" href="{% static 'lib/font-awesome/css/font-awesome.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/reset.css'%}">
+    <link rel="stylesheet" href="{% static 'css/dash.css'%}">
+    <link rel="stylesheet" href="{% static 'css/pos.css'%}">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="pos container" id="POS">
+        <div v-for="error in errors">
+            <p class="error">[[error.value]]</p>
+        </div>
+        <h1>[[deckName]]</h1>
+        <nav class="pos-nav">
+            <a href="">save (F2)</a>
+        </nav>
+        <div class="pos-bar row " @keyup.enter="product_Form_handler" @keyup.down="add_to_cart">
+            <input  v-model="productInput" type="text" id="item" class="col-4">
+            <div class="qty col-3">
+                <label for="qty">QTY.</label>
+                <input type="number" v-model="product_amount" id="qty" name="qty">
+            </div>
+            <div class="price col-2">
+                <label for="price">Price </label>
+                <span> [[product_amount]] X [[product? product_price : 0]] Birr </span>           </div>
+            <div class="total col-2">
+                <label for="total">Total </label>
+                <span> [[product_total]] Birr</span>
+            </div>
+            <div class=" col-1">
+                <a @click.prevent="add_to_cart">send</a>
+            </div>
+        </div>
+        <hr>
+        <h2>on cart</h2>
+        <div class="items">
+            <table class="table" >
+                <thead>
+                    <tr class="row">
+                        <th class="col-1 dark" scope="col">no</th>
+                        <th class="col-7 dark" scope="col">Product</th>
+                        <th class="col-2 dark" scope="col">Price</th>
+                        <th class="col-2 dark" scope="col">total</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="item row " v-for="(product, index) in productsOnCart">
+                        <td class="col-1">[[index]]</td>                                
+                        <td class="col-7">[[product.description]]</td>
+                        <td class="col-2 light">[[product.amount]] X [[product.price]] Birr </td>
+                        <td class="col-2 dark">[[product.price * product.amount]]</td>   
+                        <td class="delete_item" @click='del_cart_product(index)'>x</td>            
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="pos-total">
+            <div class="def">
+                <input type="checkbox" name="def" id="">
+                <span>$ 1.21</span>
+            </div>
+            <div>
+                <h3 class="total">total :  [[cart_total]] Birr </h3>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'lib/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'lib/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/vue.global.js' %}"></script>
+    <script src="{% static 'js/pos.js' %}"></script>
+</body>
+</html>

@@ -22,4 +22,4 @@ from store.models import Product, SoldItem, Item
 class ProductSerializer(serializers.ModelSerializer):
     class Meta: 
         model = Product
-        fields = ('id', 'description', 'price')
+        fields = ('id', 'description', 'price', 'tax')
