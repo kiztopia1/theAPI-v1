@@ -16,15 +16,15 @@
     <div class="app flex">
         <div class="side-nav">
             <div class="logo flex-cc">
-                Hage logo
+                <img src="{% static 'img/hagre pos.svg' %}" alt="">
             </div>
             <ul class="lists">
-                <li><a href="" class="dark">Dashboard</a></li>
-                <li><a href="" class="dark">Products</a></li>
-                <li><a href="" class="dark">Categories</a></li>
-                <li><a href="" class="dark">Sale</a></li>
-                <li><a href="" class="dark">Purchases</a></li>
-                <li><a href="" class="dark">Returns</a></li>
+                <li><a href="{% url 'dashboard'%}" class="dark">Dashboard</a></li>
+                <li><a href="{% url 'add_new_product'%}" class="dark">Products</a></li>
+                <li><a href="{% url 'dashboard'%}" class="dark">Categories</a></li>
+                <li><a href="{% url 'pos'%}" class="dark" id="to_sale_nav">Sale</a></li>
+                <li><a href="{% url 'dashboard'%}" class="dark">Purchases</a></li>
+                <li><a href="{% url 'dashboard'%}" class="dark">Returns</a></li>
             </ul>
         </div>
         <div class="main-container">

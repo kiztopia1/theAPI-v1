@@ -19,14 +19,11 @@
             <p class="error">[[error.value]]</p>
         </div>
         <h1>[[deckName]]</h1>
-        <nav class="pos-nav">
-            <a href="">save (F2)</a>
-        </nav>
-        <div class="pos-bar row " @keyup.enter="product_Form_handler" @keyup.down="add_to_cart">
+        <div class="pos-bar row "  >
             <input  v-model="productInput" type="text" id="item" class="col-4">
             <div class="qty col-3">
                 <label for="qty">QTY.</label>
-                <input type="number" v-model="product_amount" id="qty" name="qty">
+                <input  type="number" v-model="product_amount" id="qty" name="qty">
             </div>
             <div class="price col-2">
                 <label for="price">Price </label>
@@ -40,9 +37,16 @@
             </div>
         </div>
         <hr>
+        <div class="selected_product row" v-if="product">
+
+            <h7 class="light col-4">[[product.description]]</h7>
+            <h7 class="light col-3">[[product_amount]] X [[product? product_price : 0]] Birr</h7>
+            <h7 class="light col-2">[[product_total]] Birr</h7>
+        </div>
+        <hr>
         <h2>on cart</h2>
         <div class="items">
-            <table class="table" >
+            <table class="table pos_cart_table" id="pos_cart_table" >
                 <thead>
                     <tr class="row">
                         <th class="col-1 dark" scope="col">no</th>
@@ -58,18 +62,22 @@
                         <td class="col-7">[[product.description]]</td>
                         <td class="col-2 light">[[product.amount]] X [[product.price]] Birr </td>
                         <td class="col-2 dark">[[product.price * product.amount]]</td>   
-                        <td class="delete_item" @click='del_cart_product(index)'>x</td>            
+                        <td class="delete_item btn btn-sm btn-outline-danger" @click='del_cart_product(index)'>x</td>            
                     </tr>
                 </tbody>
             </table>
+            {% include 'store/pos/sale_form.html' %}
         </div>
         <div class="pos-total">
             <div class="def">
                 <input type="checkbox" name="def" id="">
-                <span>$ 1.21</span>
+                <span class="small light ">Tax : [[ cart_tax ]] Birr</spanca>
+                <br>
+                <span class="small light ">Total : [[cart_total]] Birr</span>
             </div>
             <div>
-                <h3 class="total">total :  [[cart_total]] Birr </h3>
+                <h3 class="total">total :  [[cart_aft_total]] Birr</h3>
+                <a href="{% url 'dashboard' %} " class="error btn-sm btn btn-outline-danger" id="close_pos">close pos (X)</a>
             </div>
         </div>
     </div>

@@ -1,12 +1,14 @@
 
 from django.urls import path
 from .apiViews import ProductsList, ProductReterive
-from .views import index, add_new_product, pos
+from .views import index, add_new_product, pos, pdf
+
 urlpatterns = [
-    path('', index , name='index'),
+    path('', index , name='dashboard'),
     path('add_new_product', add_new_product, name='products_list'),
     path('add_new_product', add_new_product, name='add_new_product'),
     path('pos', pos, name='pos'),
+     path('pdf', pdf, name='pdf'),
 
 
     # # add new item

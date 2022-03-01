@@ -1,0 +1,9 @@
+<form action="{% url 'pos'%}" method='post' class="sale-form" >
+
+    {% csrf_token %}
+    <div class="hide">
+
+        {{form}}
+    </div>
+    <button type="submit" class="btn btn-warning" id="sale_form">save (F1)</button>
+</form>

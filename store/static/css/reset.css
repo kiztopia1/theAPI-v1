@@ -46,10 +46,14 @@ a:hover{
     text-decoration: none;
     color: inherit;
 }
-table
+.table
 {
     border-spacing: 0;
     border-collapse: collapse;
+    overflow: scroll!important
+}
+.small{
+    font-size: small!important;
 }
 
 th,

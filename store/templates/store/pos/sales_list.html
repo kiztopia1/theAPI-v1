@@ -1,0 +1,44 @@
+
+<table class="table sales_summary_table" border="true" id="pos">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Date</th>
+            <th scope="col">Time</th>
+            <th scope="col">Products</th>
+            <th scope="col">Total</th>
+            <th scope="col">Customer Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for sale in sales %}
+        <tr>
+            <td >{{sale.id}}</td>                                
+            <td >{{sale.date}}</td>
+            <td >{{sale.time}} </td>
+            <td class="sale_products_text">{{sale.products}}</td>
+            <td >{{sale.total}} Birr</td>
+            <td >{{sale.customer}} </td>                               
+            <a @click.prevent="" class="delete_item"></a>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<div class="pagination">
+    <span class="step-links">
+        {% if sales.has_previous %}
+            <a href="?sale=1">&laquo; first</a>
+            <span>  |  </span>
+            <a href="?sale={{ sales.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ sales.number }} of {{ sales.paginator.num_pages }}.
+        </span>
+
+        {% if sales.has_next %}
+            <a href="?sale={{ sales.next_page_number }}">next</a> <span>  |  </span>
+            <a href="?sale={{ sales.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>

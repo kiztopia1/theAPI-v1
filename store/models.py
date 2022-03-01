@@ -1,6 +1,8 @@
+from datetime import date
 from statistics import mode
 from django.contrib.auth.models import User
 from django.db import models
+from django.forms import CharField
 from sqlalchemy import false, true
 
 
@@ -95,3 +97,16 @@ class SoldItem(models.Model):
     date = models.DateField()
     def __str__(self):
         return self.item
+
+class Sale(models.Model):
+    id = models.CharField(max_length=100, primary_key=True )
+    date= models.DateField(auto_now=True)
+    time = models.TimeField(auto_now=True)
+    products = models.TextField()
+    customer = models.CharField(default='unknown', max_length=100)
+    total = models.IntegerField()
+    # seller = models.CharField()
+
+    # amount, change , shipment , discount, paid
+    def __str__(self):
+        return self.id

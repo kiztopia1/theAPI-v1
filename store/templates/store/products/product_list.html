@@ -19,7 +19,7 @@
         {% for product in products %}
         <tr>
             <td >{{product.description}}</td>                                
-            <td >{{product.sku}}</td>
+            <td >{{product.id}}</td>
             <td >
                 {% if product.category == 'store.Category.None' %}
                 {{product.category}}
@@ -44,3 +44,21 @@
         {% endfor %}
     </tbody>
 </table>
+<div class="pagination">
+    <span class="step-links">
+        {% if products.has_previous %}
+            <a href="?products=1">&laquo; first</a>
+            <span>  |  </span>
+            <a href="?products={{ products.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ products.number }} of {{ products.paginator.num_pages }}.
+        </span>
+
+        {% if products.has_next %}
+            <a href="?products={{ products.next_page_number }}">next</a> <span>  |  </span>
+            <a href="?products={{ products.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>

@@ -20,7 +20,6 @@
 .item .delete_item{
     position: absolute;
     right: 10px;
-    height: 100%;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -28,6 +27,9 @@
     font-size: 1.5rem;
 }
 .item .delete_item:hover{
-    color: red;
+    color: black;
     cursor: pointer;
+}
+.pos_cart_table{
+    width: 100%;
 }
