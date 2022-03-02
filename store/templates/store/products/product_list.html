@@ -18,7 +18,12 @@
     <tbody>
         {% for product in products %}
         <tr>
-            <td >{{product.description}}</td>                                
+            
+            <td 
+                class = {% if product.stock_alert == True %}
+                "low-stock"
+                {%endif %} 
+            >{{product.description}}</td>                                
             <td >{{product.id}}</td>
             <td >
                 {% if product.category == 'store.Category.None' %}
@@ -31,8 +36,8 @@
             <td >{{product.min_stock}}</td>
             <td >{{product.max_stock}}</td>
             <td >{{product.stock_level}}</td>
-            <th >{{product.net_weight}}</th>
-            <th >{{product.gross_weight}}</th>
+            <td >{{product.net_weight}}</td>
+            <td >{{product.gross_weight}}</td>
             <td >{{product.tax}}</td>
             <!-- <td class="flex">
                 <a href="" class="btn btn-sm btn-success margin-sm">+</a>

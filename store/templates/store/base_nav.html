@@ -19,21 +19,21 @@
                 <img src="{% static 'img/hagre pos.svg' %}" alt="">
             </div>
             <ul class="lists">
-                <li><a href="{% url 'dashboard'%}" class="dark">Dashboard</a></li>
-                <li><a href="{% url 'add_new_product'%}" class="dark">Products</a></li>
-                <li><a href="{% url 'dashboard'%}" class="dark">Categories</a></li>
-                <li><a href="{% url 'pos'%}" class="dark" id="to_sale_nav">Sale</a></li>
-                <li><a href="{% url 'dashboard'%}" class="dark">Purchases</a></li>
-                <li><a href="{% url 'dashboard'%}" class="dark">Returns</a></li>
+                <li><a href="{% url 'dashboard'%}" class="dark"> <icon class="fa fa-building"></icon>  Dashboard</a></li>
+                <li><a href="{% url 'add_new_product'%}" class="dark"> <icon class="fa fa-barcode"></icon>  Products</a></li>
+                <li><a href="{% url 'dashboard'%}" class="dark"><icon class="fa fa-tags"></icon>  Categories</a></li>
+                <li><a href="{% url 'pos'%}" class="dark" id="to_sale_nav"><icon class="fa fa-calendar">  </icon>  Sale (F1)</a></li>
+                <li><a href="{% url 'dashboard'%}" class="dark"><icon class="fa fa-shopping-cart"></icon>  Purchases</a></li>
+                <li><a href="{% url 'dashboard'%}" class="dark"><icon class="fa fa-recycle"></icon>  Returns</a></li>
             </ul>
         </div>
         <div class="main-container">
-            <nav class="flex-bw navbar navbar-dark">
+            <nav class="flex-bw  container">
                 <div class="search">
                     <input type="text" placeholder="search">
                 </div>
                 <div class="">
-                    <span class="fa fa-avatar"></span>
+                    <icon class="fa fa-user"></icon>
                     {{user}}
                 </div>
             </nav>

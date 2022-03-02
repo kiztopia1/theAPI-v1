@@ -1,10 +1,9 @@
 
-
+const log = value => console.log(value)
     const POS = {
         delimiters: ['[[', ']]'],
         data () {
             return{
-                deckName: 'POS',
                 productsOnFilter: [],
                 activeProduct: [],
                 productsOnCart: [],
@@ -13,6 +12,7 @@
                 product_amount: 1,
                 product_total: 0,
                 product_price: 0,
+                product_id: undefined,
 
                 cart_total: 0,
                 cart_tax: 0,
@@ -38,9 +38,10 @@
             }
             let pos = document.getElementById('pos')
             document.addEventListener("keydown", (event) => {
-                
+                log(event.code)
                 // handle keypress
                 if (event.code == 'F1'){
+                    event.preventDefault()
                     if(document.getElementById('sale_form')){
 
                         document.getElementById('close_pos').click()
@@ -60,6 +61,13 @@
                 else if (event.code == 'NumpadEnter'){
                     
                     document.getElementById('sale_form').click()
+                }else if (event.code == 'ControlLeft' || event.code == 'ControlRight'){
+                    if(document.getElementById('close_pos')){
+
+                        document.getElementById('close_pos').click()
+                    }else if(document.getElementById('to_sale_nav')){
+                        document.getElementById('to_sale_nav').click()
+                    }
                 }
             });
         },
@@ -97,6 +105,7 @@
                     this.product = new_product
                     this.product_price = this.product.price
                     this.product_total = this.product.price * this.product_amount
+                    this.product_id = this.product.id
                     this.errors = []
                 }else{
                     this.errors.push({
@@ -108,6 +117,7 @@
             add_to_cart () {
                 if (this.product){
                     const product = {
+                        'id': this.product.id,
                         'description': this.product.description,
                         'price': this.product.price,
                         'amount': this.product_amount,
@@ -117,6 +127,7 @@
                     this.cart_total_calc()
                     this.update_form()
                     this.errors = []
+                    this.productInput = ''
                 }else{
                     this.errors.push({
                         'type': 'error',
@@ -124,7 +135,7 @@
                     })
                     
                 }
-                document.getElementById('item').value = ''
+                
             },
             product_total_calc () {
                 
@@ -150,6 +161,7 @@
                 this.cart_total = cart_total
                 this.cart_tax = Math.round(cart_total * 0.15)
                 this.cart_aft_total = cart_total + this.cart_tax
+                document.getElementById('item').value = ''
                 
                 
             },
@@ -179,7 +191,9 @@
                 this.total = this.cart_total
                 this.id = Date.now()
                 document.getElementById('item').focus()
-                
+                setTimeout(()=>{
+                    this.productInput = ''
+                },10)
                 
             }
 

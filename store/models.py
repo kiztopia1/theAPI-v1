@@ -64,6 +64,7 @@ class Product(models.Model):
     max_stock = models.IntegerField(default=0)
     #low_stock = models.IntegerField(default=0)
     stock_level = models.IntegerField(default=0)
+    stock_alert = models.BooleanField(default=False)
 
     #reward = models.BooleanField(default=False)
     #point_needed = models.IntegerField()

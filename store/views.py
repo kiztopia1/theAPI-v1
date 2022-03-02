@@ -1,4 +1,4 @@
-from re import A
+
 from django.core.paginator import Paginator
 from django.views import View
 from django.shortcuts import redirect, render
@@ -6,6 +6,8 @@ from django.contrib import messages
 import json
 
 from django.views import View
+
+from .utils import update_stock
 from .models import Product, Sale
 from .forms import  ProductForm, SaleForm
 
@@ -97,6 +99,11 @@ def pos(request):
         sale.save()
         lines = []
         products = to_object(request.POST['products'])
+        # updateing all the stock values
+        for product in products:
+            update_stock(Product, product['amount'], product['id'])
+            print(product['id'])
+
         for product in products:
             lines.append("------------------------------------------------")
             # lines.append(f'{}       {} X {}'.format(product['description'], product['amount']), product['price'])

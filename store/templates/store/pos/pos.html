@@ -1,6 +1,6 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-    {% load static %}
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,29 +9,24 @@
     <link rel="stylesheet" href="{% static 'lib/font-awesome/css/font-awesome.min.css'%}">
     <link rel="stylesheet" href="{% static 'css/reset.css'%}">
     <link rel="stylesheet" href="{% static 'css/dash.css'%}">
+    <link rel="stylesheet" href="{% static 'css/product.css'%}">
     <link rel="stylesheet" href="{% static 'css/pos.css'%}">
-    <title>Document</title>
+    <title>Hagre POS</title>
 </head>
 <body>
     
-    <div class="pos container" id="POS">
+    <div class="pos container " id="POS">
         <div v-for="error in errors">
             <p class="error">[[error.value]]</p>
         </div>
-        <h1>[[deckName]]</h1>
+        <img src="{% static 'img/hagre pos.svg'%}" alt="hagre POS" class="pos-logo logo">
         <div class="pos-bar row "  >
             <input  v-model="productInput" type="text" id="item" class="col-4">
-            <div class="qty col-3">
+            <div class="qty col-4">
                 <label for="qty">QTY.</label>
                 <input  type="number" v-model="product_amount" id="qty" name="qty">
             </div>
-            <div class="price col-2">
-                <label for="price">Price </label>
-                <span> [[product_amount]] X [[product? product_price : 0]] Birr </span>           </div>
-            <div class="total col-2">
-                <label for="total">Total </label>
-                <span> [[product_total]] Birr</span>
-            </div>
+            
             <div class=" col-1">
                 <a @click.prevent="add_to_cart">send</a>
             </div>
@@ -42,6 +37,9 @@
             <h7 class="light col-4">[[product.description]]</h7>
             <h7 class="light col-3">[[product_amount]] X [[product? product_price : 0]] Birr</h7>
             <h7 class="light col-2">[[product_total]] Birr</h7>
+        </div>
+        <div v-else="product">
+            <h3 class="light">No Selected Item</h3>
         </div>
         <hr>
         <h2>on cart</h2>
@@ -77,7 +75,7 @@
             </div>
             <div>
                 <h3 class="total">total :  [[cart_aft_total]] Birr</h3>
-                <a href="{% url 'dashboard' %} " class="error btn-sm btn btn-outline-danger" id="close_pos">close pos (X)</a>
+                <a href="{% url 'dashboard' %} " class="error btn-sm btn btn-outline-danger" id="close_pos">close pos ( Ctrl )</a>
             </div>
         </div>
     </div>

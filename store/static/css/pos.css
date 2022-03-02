@@ -1,3 +1,7 @@
+.pos-logo{
+    width:100px;
+    margin: 20px 0px;
+}
 .pos-total{
     position: fixed;
     right: 10px;
@@ -32,4 +36,7 @@
 }
 .pos_cart_table{
     width: 100%;
+}
+.logo{
+    width: 200px;
 }
