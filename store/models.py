@@ -106,7 +106,7 @@ class Sale(models.Model):
     products = models.TextField()
     customer = models.CharField(default='unknown', max_length=100)
     total = models.IntegerField()
-    # seller = models.CharField()
+    seller = models.CharField(default='unknown', max_length=100)
 
     # amount, change , shipment , discount, paid
     def __str__(self):

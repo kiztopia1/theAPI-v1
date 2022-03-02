@@ -94,7 +94,8 @@ def pos(request):
         sale = Sale(
             id = request.POST['id'] ,
             products= request.POST['products'],
-            total=request.POST['total']
+            total=request.POST['total'],
+            seller= request.user.username
         )
         sale.save()
         lines = []
